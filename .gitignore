@@ -1,0 +1,14 @@
+# dependencies COMPOSER
+/vendor
+
+# IDEs and editors
+/.buildpath
+.c9/
+.classpath
+.project
+*.launch
+.settings/
+*.sublime-workspace
+.babelrc
+.sonarlint/
+.favorites.json
