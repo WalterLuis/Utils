@@ -1,0 +1,15 @@
+<IfModule mod_php.c>
+  php_value error_reporting 32767
+  php_flag display_errors On
+  php_flag display_startup_errors On
+  php_flag html_errors Off
+  php_flag log_errors Off
+
+  php_value mbstring.func_overload 0
+  php_value max_execution_time 3600
+  php_value max_input_time 3600
+
+  <IfModule mod_env.c>
+    SetEnv htaccessTestsWorking true
+  </IfModule>
+</IfModule>
