@@ -1,0 +1,45 @@
+{
+    "name": "walterluis/utils",
+    "type": "library",
+    "description": "PHP utils and more",
+    "keywords": [
+        "PHP",
+        "utils",
+        "functions"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/WalterLuis/Utils",
+    "support": {
+        "issues": "https://github.com/WalterLuis/Utils/issues",
+        "source": "https://github.com/WalterLuis/Utils"
+    },
+    "authors": [
+        {
+            "name": "Walter Luis",
+            "email": "walterluisglez@gmail.com",
+            "homepage": "https://walterluis.net",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "WalterLuis\\Utils\\": "src/"
+        }
+    },
+    "config": {
+        "autoloader-suffix": "WL_",
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "process-timeout": 3600,
+        "discard-changes": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
