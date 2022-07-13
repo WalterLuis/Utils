@@ -33,7 +33,7 @@
         }
     },
     "config": {
-        "autoloader-suffix": "WL_",
+        "autoloader-suffix": "_WL",
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
