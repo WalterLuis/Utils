@@ -4,18 +4,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.7] - 2022-07-13
+### Fixed
+- namespace was wrong name, renamed to "WalterLuis\Utils".
+### Changed
+- "composer.json" file removing "classmap" and "exclude-from-classmap".
+- "composer.json" file adding "autoload-dev".
+
 ## [0.0.6] - 2022-07-13
 ### Changed
-- "composer.json" file adding "classmap" and "exclude-from-classmap"
+- "composer.json" file adding "classmap" and "exclude-from-classmap".
 
 ## [0.0.5] - 2022-07-13
 ### Added
-- ".gitignore" file
-- "composer.lock" file
+- ".gitignore" file.
+- "composer.lock" file.
 
 ## [0.0.4] - 2022-07-13
 ### Fixed
-- "autoloader-suffix" rename from "WL_" to "_WL"
+- "autoloader-suffix" rename from "WL_" to "_WL".
 
 ## [0.0.3] - 2022-07-13
 ### Added

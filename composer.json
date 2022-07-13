@@ -30,13 +30,12 @@
     "autoload": {
         "psr-4": {
             "WalterLuis\\Utils\\": "src/"
-        },
-        "classmap": [
-            "src/"
-        ],
-        "exclude-from-classmap": [
-            "tests/"
-        ]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WalterLuis\\Utils\\Tests\\": "tests/"
+        }
     },
     "config": {
         "autoloader-suffix": "_WL",

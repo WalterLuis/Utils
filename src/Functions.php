@@ -1,6 +1,6 @@
 <?php
 
-namespace Src;
+namespace WalterLuis\Utils;
 
 /**
  * Class created with enhanced features.
