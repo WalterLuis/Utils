@@ -2,8 +2,8 @@
 Utilities and tools for everyday use 🐱‍👤
 
 [![Software License](https://img.shields.io/github/license/walterluis/utils?style=for-the-badge)](LICENSE)
-[![Packagist Version](https://img.shields.io/packagist/v/walterluis/utils?style=for-the-badge)](CHANGELOG.md)
-![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/walterluis/utils?style=for-the-badge)
+[![Packagist Version](https://img.shields.io/packagist/v/walterluis/utils?style=for-the-badge)](https://packagist.org/packages/walterluis/utils)
+[![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/walterluis/utils?style=for-the-badge)](CHANGELOG.md)
 
 ## Installation
 
