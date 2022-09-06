@@ -27,12 +27,12 @@ class Validator
      *
      * @return bool
      */
-    public static function string(string $input): bool
+    public static function string(string $input, string $extraPattern = ''): bool
     {
         /**
          * \p{Cc} or \p{Control}: an ASCII or Latin-1 control character: 0x00–0x1F and 0x7F–0x9F.
          */
-        return \preg_match('/^[\p{L}\p{S}\p{P}\p{Z}\p{N}\p{Cc}]+$/', $input);
+        return \preg_match('/^[\p{L}\p{S}\p{P}\p{Z}\p{N}\p{Cc}' . $extraPattern . ']+$/', $input);
     }
 
     /**
@@ -42,9 +42,9 @@ class Validator
      *
      * @return bool
      */
-    public static function text(string $input): bool
+    public static function text(string $input, string $extraPattern = ''): bool
     {
-        return \preg_match('/^[\p{L}]+$/', $input);
+        return \preg_match('/^[\p{L}' . $extraPattern . ']+$/', $input);
     }
 
     /**
@@ -78,9 +78,9 @@ class Validator
      *
      * @return bool
      */
-    public static function alnum($input): bool
+    public static function alnum($input, string $extraPattern = ''): bool
     {
-        return \preg_match('/^[\p{L}\p{N}]+$/', $input);
+        return \preg_match('/^[\p{L}\p{N}' . $extraPattern . ']+$/', $input);
     }
 
     /**
