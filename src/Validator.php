@@ -20,6 +20,8 @@ namespace WalterLuis\Utils;
  */
 class Validator
 {
+    private const SPECIAL_CHARACTERS = '|@#~€$¬ºª·%&=^*.:,;<>!¡¿?()[]{}-_';
+
     /**
      * Function verifies if given value.
      *
@@ -156,5 +158,29 @@ class Validator
             return \preg_match('/^(2[0-3]|1[\d]|0[\d]):([0-5][\d])$/', $input);
         }
         return \preg_match('/^(2[0-3]|1[\d]|0[\d]):([0-5][\d]):([0-5][\d])$/', $input);
+    }
+
+    /**
+     * Function verifies if given value is a valid user.
+     *
+     * @param string $input
+     *
+     * @return bool
+     */
+    public static function userName(string $input, string $extraPattern = ''): bool
+    {
+        return static::text($input, '@-_.' . $extraPattern);
+    }
+
+    /**
+     * Function verifies if given value is a valid password.
+     *
+     * @param string $input
+     *
+     * @return bool
+     */
+    public static function password(string $input, string $extraPattern = ''): bool
+    {
+        return static::string($input, static::SPECIAL_CHARACTERS . $extraPattern);
     }
 }
