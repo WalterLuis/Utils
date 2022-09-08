@@ -23,7 +23,7 @@ class Validator
     private const SPECIAL_CHARACTERS = '|@#~€$¬ºª·%&=^*.:,;<>!¡¿?()[]{}-_';
 
     /**
-     * Function verifies if given value.
+     * Function verifies if given value is a string.
      *
      * @param string $input
      *
@@ -130,7 +130,7 @@ class Validator
      */
     public static function dateTime(string $input): bool
     {
-        return (false === DateTime::toISO($input, true) ? false : true);
+        return false === DateTime::toISO($input, true) ? false : true;
     }
 
     /**
@@ -157,6 +157,7 @@ class Validator
         if (Mb::mb_strlen($input) <= 5) {
             return \preg_match('/^(2[0-3]|1[\d]|0[\d]):([0-5][\d])$/', $input);
         }
+
         return \preg_match('/^(2[0-3]|1[\d]|0[\d]):([0-5][\d]):([0-5][\d])$/', $input);
     }
 

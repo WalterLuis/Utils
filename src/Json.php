@@ -90,9 +90,9 @@ class Json
      *
      * @link https://secure.php.net/manual/en/function.json-decode.php
      *
-     * @return array|object
-     *
      * @throws \Throwable
+     *
+     * @return array|object
      */
     public static function decode(string $encodedValue, $objectDecodeType = self::TYPE_ARRAY, $depth = 768, $options = \JSON_THROW_ON_ERROR)
     {
@@ -121,9 +121,9 @@ class Json
      * @param array|object $valueToEncode
      * @param int          $options       Optional; Bitmask consisting of JSON_HEX_QUOT, JSON_HEX_TAG, JSON_HEX_AMP, JSON_HEX_APOS, JSON_NUMERIC_CHECK, JSON_PRETTY_PRINT, JSON_UNESCAPED_SLASHES, JSON_FORCE_OBJECT, JSON_UNESCAPED_UNICODE. JSON_THROW_ON_ERROR The behaviour of these constants is described on the JSON constants page.
      *
-     * @return string|false JSON encoded object
-     *
      * @throws \Throwable
+     *
+     * @return string|false JSON encoded object
      */
     public static function encode($valueToEncode, $options = \JSON_THROW_ON_ERROR, $depth = 768): string
     {

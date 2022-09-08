@@ -15,9 +15,9 @@ class DateTime
      * Returns the difference between two date ISO8601 format.
      *
      * @param string $date_start YYYY-MM-DD
-     * @param string $date_end YYYY-MM-DD
+     * @param string $date_end   YYYY-MM-DD
      *
-     * @return integer
+     * @return int
      */
     public static function diff(string $date_start, string $date_end): int
     {
@@ -29,9 +29,9 @@ class DateTime
     /**
      * Convert Date or DateTime to ISO8601.
      *
-     * @param string  $dateTime Date or DateTime format
-     * @param boolean $arrayReturn
-     * @param string  $timeZone
+     * @param string $dateTime    Date or DateTime format
+     * @param bool   $arrayReturn
+     * @param string $timeZone
      *
      * @return string|array|false "$y-$m-$d $time" | [$y, $m, $d, $time]
      */
@@ -44,7 +44,7 @@ class DateTime
             [$date, $time] = \explode(' ', $dateTime, 2);
         }
 
-        foreach (['-'=>'-','/'=>'\/','.'=>'.'] as $separator => $regExp) {
+        foreach (['-' => '-', '/' => '\/', '.' => '.'] as $separator => $regExp) {
             if (false !== Mb::mb_strpos($date, $separator)) {
                 if (\preg_match('/^[\d]{4}' . $regExp . '(0[1-9]|1[0-2])' . $regExp . '(0[1-9]|[1-2][\d]|3[0-1])$/', $date)) {
                     [$y, $m, $d] = \explode($separator, $date, 3);
@@ -67,6 +67,6 @@ class DateTime
             return [$y, $m, $d, $time];
         }
 
-        return \trim("{$y}-{$m}-{$d}T{$time}{$timeZone}", " :-");
+        return \trim("{$y}-{$m}-{$d}T{$time}{$timeZone}", ' :-');
     }
 }

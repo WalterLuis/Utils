@@ -15,8 +15,9 @@ class Functions
      * Changes file mode.
      *
      * @param string $pathToTheFile
-     * @param integer $permissions
-     * @return boolean
+     * @param int    $permissions
+     *
+     * @return bool
      *
      * @link https://php.net/manual/en/function.chmod.php
      */
