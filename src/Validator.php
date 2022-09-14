@@ -20,7 +20,7 @@ namespace WalterLuis\Utils;
  */
 class Validator
 {
-    private const SPECIAL_CHARACTERS = '|@#~€$¬ºª·%&=^*.:,;<>!¡¿?()[]{}-_';
+    private const SPECIAL_CHARACTERS = '|@#~€$¬ºª·%&=^*.:,;<>!¡¿?()[]{}_\-';
 
     /**
      * Function verifies if given value is a string.
@@ -170,7 +170,7 @@ class Validator
      */
     public static function userName(string $input, string $extraPattern = ''): bool
     {
-        return static::text($input, '@-_.' . $extraPattern);
+        return static::text($input, '@._\-\d' . $extraPattern);
     }
 
     /**
