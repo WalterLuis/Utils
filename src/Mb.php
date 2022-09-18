@@ -258,7 +258,7 @@ class Mb
      * Count the number of substring occurrences.
      *
      * @param string      $haystack
-     * @param mixed       $needle
+     * @param string       $needle
      * @param int|null    $offset
      * @param int|null    $length
      * @param string|null $encoding
@@ -267,7 +267,7 @@ class Mb
      *
      * @link https://php.net/manual/en/function.mb-substr-count.php
      */
-    public static function mb_substr_count(string $haystack, mixed $needle, ?int $offset = null, ?int $length = null, ?string $encoding = null): int
+    public static function mb_substr_count(string $haystack, string $needle, ?int $offset = null, ?int $length = null, ?string $encoding = null): int
     {
         if (true === \function_exists(__FUNCTION__)) {
             if (null === $encoding) {
