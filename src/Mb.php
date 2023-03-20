@@ -310,14 +310,14 @@ class Mb
      *
      * @param string      $haystack
      * @param string      $needle
-     * @param int|null    $offset
+     * @param int    $offset
      * @param string|null $encoding
      *
      * @return int|false
      *
      * @link https://php.net/manual/en/function.mb-strpos.php
      */
-    public static function mb_strpos(string $haystack, string $needle, ?int $offset = null, ?string $encoding = null)
+    public static function mb_strpos(string $haystack, string $needle, int $offset = 0, ?string $encoding = null)
     {
         if (true === \function_exists(__FUNCTION__)) {
             if (null === $encoding) {
