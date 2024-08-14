@@ -106,7 +106,7 @@ class Validator
      */
     public static function email(string $email): bool
     {
-        return false !== \filter_var($email, \FILTER_VALIDATE_EMAIL) && $email === \filter_var($email, \FILTER_SANITIZE_EMAIL);
+        return false !== \filter_var($email, \FILTER_VALIDATE_EMAIL, \FILTER_FLAG_EMAIL_UNICODE);
     }
 
     /**
