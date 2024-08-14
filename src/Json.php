@@ -17,8 +17,9 @@ class Json
     /**
      * Determine whether a variable is a JSON or not.
      */
-    public static function isJson(mixed $json): bool
-    {
+    public static function isJson(
+        mixed $json
+    ): bool {
         return \is_string($json)
             && (
                 ('[' === \substr($json, 0, 1) && ']' === \substr($json, -1, 1))
@@ -29,16 +30,21 @@ class Json
     /**
      * Determine whether a variable is empty.
      */
-    public static function isEmpty(?string $json): bool
-    {
-        return empty($json) || '[]' === $json || '{}' === $json || '""' === $json;
+    public static function isEmpty(
+        ?string $json
+    ): bool {
+        return empty($json)
+            || '[]' === $json
+            || '{}' === $json
+            || '""' === $json;
     }
 
     /**
      * Determine whether a variable is a converted JSON HTML.
      */
-    public static function isConvertedJsonHtml(?string $json): bool
-    {
+    public static function isConvertedJsonHtml(
+        ?string $json
+    ): bool {
         return \is_string($json)
             && (
                 ('[&quot;' === \substr($json, 0, 1) && '&quot;]' === \substr($json, -1, 1))
@@ -50,8 +56,9 @@ class Json
     /**
      * Delete comments in the JSON.
      */
-    public static function deleteComments(string $json): string
-    {
+    public static function deleteComments(
+        string $json
+    ): string {
         $json = \preg_replace(
             [
                 // delete inline comments
@@ -78,24 +85,45 @@ class Json
      *
      * @throws \Throwable
      */
-    public static function decode(string $encodedValue, $objectDecodeType = self::TYPE_ARRAY, $depth = 768, $options = \JSON_THROW_ON_ERROR)
-    {
+    public static function decode(
+        string $encodedValue,
+        $objectDecodeType = self::TYPE_ARRAY,
+        $depth = 768,
+        $options = \JSON_THROW_ON_ERROR
+    ) {
         if (false === \function_exists('json_decode')) {
-            throw new \Throwable('ERR_JSON_DECODE_LIBRARY_IS_NOT_INSTALLED');
+            throw new \Throwable(
+                'ERR_JSON_DECODE_LIBRARY_IS_NOT_INSTALLED',
+                404
+            );
         }
 
         if (self::isConvertedJsonHtml($encodedValue)) {
-            $encodedValue = \html_entity_decode($encodedValue, \ENT_QUOTES|\ENT_SUBSTITUTE, 'UTF-8');
+            $encodedValue = \html_entity_decode(
+                $encodedValue,
+                \ENT_QUOTES|\ENT_SUBSTITUTE,
+                'UTF-8'
+            );
         }
 
-        if (false === self::isJson($encodedValue) || true === self::isEmpty($encodedValue)) {
+        if (false === self::isJson($encodedValue)
+            || true === self::isEmpty($encodedValue)
+        ) {
             $encodedValue = '{}';
         }
 
         try {
-            return \json_decode($encodedValue, $objectDecodeType, $depth, $options);
+            return \json_decode(
+                $encodedValue,
+                $objectDecodeType,
+                $depth,
+                $options
+            );
         } catch (\Throwable $th) {
-            throw new \Throwable("JSON_DECODE_MESSAGE: {$th->getMessage()}, JSON: '{$encodedValue}'", 500);
+            throw new \Throwable(
+                "JSON_DECODE_MESSAGE: {$th->getMessage()}, JSON: '{$encodedValue}'",
+                500
+            );
         }
     }
 
@@ -109,16 +137,25 @@ class Json
      *
      * @throws \Throwable
      */
-    public static function encode($valueToEncode, $options = \JSON_THROW_ON_ERROR, $depth = 768): string
-    {
+    public static function encode(
+        $valueToEncode,
+        $options = \JSON_THROW_ON_ERROR,
+        $depth = 768
+    ): string {
         if (false === \function_exists('json_encode')) {
-            throw new \Throwable('ERR_JSON_ENCODE_LIBRARY_IS_NOT_INSTALLED');
+            throw new \Throwable(
+                'ERR_JSON_ENCODE_LIBRARY_IS_NOT_INSTALLED',
+                404
+            );
         }
 
         try {
             return \json_encode($valueToEncode, $options, $depth);
         } catch (\Throwable $th) {
-            throw new \Throwable("JSON_ENCODE_MESSAGE: '{$th->getMessage()}'.", 500);
+            throw new \Throwable(
+                "JSON_ENCODE_MESSAGE: '{$th->getMessage()}'.",
+                500
+            );
         }
     }
 }

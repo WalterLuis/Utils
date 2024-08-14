@@ -16,9 +16,13 @@ class Functions
      *
      * @see https://php.net/manual/en/function.chmod.php
      */
-    public static function chmod(string $pathToTheFile, int $permissions = 0644): bool
-    {
-        if (false === \file_exists($pathToTheFile) && false === \is_dir($pathToTheFile)) {
+    public static function chmod(
+        string $pathToTheFile,
+        int $permissions = 0644
+    ): bool {
+        if (false === \file_exists($pathToTheFile)
+            && false === \is_dir($pathToTheFile)
+        ) {
             return false;
         }
 

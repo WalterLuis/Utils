@@ -25,28 +25,42 @@ class Validator
     /**
      * Function verifies if given value is a string.
      */
-    public static function string(string $input, string $extraPattern = ''): bool
-    {
+    public static function string(
+        string $input,
+        string $extraPattern = ''
+    ): bool {
         /*
          * \p{Cc} or \p{Control}: an ASCII or Latin-1 control character: 0x00–0x1F and 0x7F–0x9F.
          */
-        return \preg_match('/^[\p{L}\p{S}\p{P}\p{Z}\p{N}\p{Cc}' . $extraPattern . ']+$/', $input);
+        return \preg_match(
+            '/^[\p{L}\p{S}\p{P}\p{Z}\p{N}\p{Cc}' . $extraPattern . ']+$/',
+            $input
+        );
     }
 
     /**
      * Function verifies if given value is only text.
      */
-    public static function text(string $input, string $extraPattern = ''): bool
-    {
-        return \preg_match('/^[\p{L}' . $extraPattern . ']+$/', $input);
+    public static function text(
+        string $input,
+        string $extraPattern = ''
+    ): bool {
+        return \preg_match(
+            '/^[\p{L}' . $extraPattern . ']+$/',
+            $input
+        );
     }
 
     /**
      * Function verifies if given value is only number including dot and comma.
      */
-    public static function numeric(string $input): bool
-    {
-        return \preg_match('/^[\p{N}.,]+$/', $input);
+    public static function numeric(
+        string $input
+    ): bool {
+        return \preg_match(
+            '/^[\p{N}.,]+$/',
+            $input
+        );
     }
 
     /**
@@ -54,9 +68,13 @@ class Validator
      *
      * @param int|string $input
      */
-    public static function integer($input): bool
-    {
-        return false !== \filter_var($input, \FILTER_VALIDATE_INT);
+    public static function integer(
+        $input
+    ): bool {
+        return false !== \filter_var(
+            $input,
+            \FILTER_VALIDATE_INT
+        );
     }
 
     /**
@@ -64,9 +82,14 @@ class Validator
      *
      * @param int|string $input
      */
-    public static function alnum($input, string $extraPattern = ''): bool
-    {
-        return \preg_match('/^[\p{L}\p{N}' . $extraPattern . ']+$/', $input);
+    public static function alnum(
+        $input,
+        string $extraPattern = ''
+    ): bool {
+        return \preg_match(
+            '/^[\p{L}\p{N}' . $extraPattern . ']+$/',
+            $input
+        );
     }
 
     /**
@@ -74,68 +97,104 @@ class Validator
      *
      * @param bool|int|string $input
      */
-    public static function bool($input): bool
-    {
-        return null !== \filter_var($input, \FILTER_VALIDATE_BOOLEAN, \FILTER_NULL_ON_FAILURE);
+    public static function bool(
+        $input
+    ): bool {
+        return null !== \filter_var(
+            $input,
+            \FILTER_VALIDATE_BOOLEAN,
+            \FILTER_NULL_ON_FAILURE
+        );
     }
 
     /**
      *  Function checks if given value is email.
      */
-    public static function email(string $email): bool
-    {
-        return false !== \filter_var($email, \FILTER_VALIDATE_EMAIL, \FILTER_FLAG_EMAIL_UNICODE);
+    public static function email(
+        string $email
+    ): bool {
+        return false !== \filter_var(
+            $email,
+            \FILTER_VALIDATE_EMAIL,
+            \FILTER_FLAG_EMAIL_UNICODE
+        );
     }
 
     /**
      * Function checks if given value is url.
      */
-    public static function url(string $url): bool
-    {
-        return false !== \filter_var($url, \FILTER_VALIDATE_URL);
+    public static function url(
+        string $url
+    ): bool {
+        return false !== \filter_var(
+            $url,
+            \FILTER_VALIDATE_URL
+        );
     }
 
     /**
      * Function verifies if given value is compatible with default date and time format.
      */
-    public static function dateTime(string $input): bool
-    {
-        return false === DateTime::toISO($input, true) ? false : true;
+    public static function dateTime(
+        string $input
+    ): bool {
+        return false !== DateTime::toISO(
+            $input,
+            true
+        );
     }
 
     /**
      * Function verifies if given value is compatible with default data format.
      */
-    public static function date(string $input): bool
-    {
+    public static function date(
+        string $input
+    ): bool {
         return static::dateTime($input);
     }
 
     /**
      * Function verifies if given value is compatible with default time format.
      */
-    public static function time(string $input): bool
-    {
+    public static function time(
+        string $input
+    ): bool {
         if (Mb::mb_strlen($input) <= 5) {
-            return \preg_match('/^(2[0-3]|1[\d]|0[\d]):([0-5][\d])$/', $input);
+            return \preg_match(
+                '/^(2[0-3]|1[\d]|0[\d]):([0-5][\d])$/',
+                $input
+            );
         }
 
-        return \preg_match('/^(2[0-3]|1[\d]|0[\d]):([0-5][\d]):([0-5][\d])$/', $input);
+        return \preg_match(
+            '/^(2[0-3]|1[\d]|0[\d]):([0-5][\d]):([0-5][\d])$/',
+            $input
+        );
     }
 
     /**
      * Function verifies if given value is a valid user.
      */
-    public static function userName(string $input, string $extraPattern = ''): bool
-    {
-        return static::text($input, '@._\-\d' . $extraPattern);
+    public static function userName(
+        string $input,
+        string $extraPattern = ''
+    ): bool {
+        return static::text(
+            $input,
+            '@._\-\d' . $extraPattern
+        );
     }
 
     /**
      * Function verifies if given value is a valid password.
      */
-    public static function password(string $input, string $extraPattern = ''): bool
-    {
-        return static::string($input, static::SPECIAL_CHARACTERS . $extraPattern);
+    public static function password(
+        string $input,
+        string $extraPattern = ''
+    ): bool {
+        return static::string(
+            $input,
+            static::SPECIAL_CHARACTERS . $extraPattern
+        );
     }
 }
