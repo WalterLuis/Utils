@@ -14,12 +14,7 @@ class Functions
     /**
      * Changes file mode.
      *
-     * @param string $pathToTheFile
-     * @param int    $permissions
-     *
-     * @return bool
-     *
-     * @link https://php.net/manual/en/function.chmod.php
+     * @see https://php.net/manual/en/function.chmod.php
      */
     public static function chmod(string $pathToTheFile, int $permissions = 0644): bool
     {

@@ -16,10 +16,6 @@ class Json
 
     /**
      * Determine whether a variable is a JSON or not.
-     *
-     * @param mixed $json
-     *
-     * @return bool
      */
     public static function isJson(mixed $json): bool
     {
@@ -32,22 +28,14 @@ class Json
 
     /**
      * Determine whether a variable is empty.
-     *
-     * @param string|null $json
-     *
-     * @return bool
      */
     public static function isEmpty(?string $json): bool
     {
-        return empty($json) || $json === '[]' || $json === '{}' || $json === '""';
+        return empty($json) || '[]' === $json || '{}' === $json || '""' === $json;
     }
 
     /**
      * Determine whether a variable is a converted JSON HTML.
-     *
-     * @param string|null $json
-     *
-     * @return bool
      */
     public static function isConvertedJsonHtml(?string $json): bool
     {
@@ -61,10 +49,6 @@ class Json
 
     /**
      * Delete comments in the JSON.
-     *
-     * @param string $json
-     *
-     * @return string
      */
     public static function deleteComments(string $json): string
     {
@@ -88,11 +72,11 @@ class Json
      * @param string $encodedValue     Encoded in JSON format
      * @param int    $objectDecodeType Optional; When TRUE, returned objects will be converted into associative arrays
      *
-     * @link https://secure.php.net/manual/en/function.json-decode.php
-     *
-     * @throws \Throwable
+     * @see https://secure.php.net/manual/en/function.json-decode.php
      *
      * @return array|object
+     *
+     * @throws \Throwable
      */
     public static function decode(string $encodedValue, $objectDecodeType = self::TYPE_ARRAY, $depth = 768, $options = \JSON_THROW_ON_ERROR)
     {
@@ -101,7 +85,7 @@ class Json
         }
 
         if (self::isConvertedJsonHtml($encodedValue)) {
-            $encodedValue = \html_entity_decode($encodedValue, \ENT_QUOTES | \ENT_SUBSTITUTE, 'UTF-8');
+            $encodedValue = \html_entity_decode($encodedValue, \ENT_QUOTES|\ENT_SUBSTITUTE, 'UTF-8');
         }
 
         if (false === self::isJson($encodedValue) || true === self::isEmpty($encodedValue)) {
@@ -121,9 +105,9 @@ class Json
      * @param array|object $valueToEncode
      * @param int          $options       Optional; Bitmask consisting of JSON_HEX_QUOT, JSON_HEX_TAG, JSON_HEX_AMP, JSON_HEX_APOS, JSON_NUMERIC_CHECK, JSON_PRETTY_PRINT, JSON_UNESCAPED_SLASHES, JSON_FORCE_OBJECT, JSON_UNESCAPED_UNICODE. JSON_THROW_ON_ERROR The behaviour of these constants is described on the JSON constants page.
      *
-     * @throws \Throwable
-     *
      * @return string|false JSON encoded object
+     *
+     * @throws \Throwable
      */
     public static function encode($valueToEncode, $options = \JSON_THROW_ON_ERROR, $depth = 768): string
     {

@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.17] - 2024-08-14
+### Fixed
+- Fix email validation to support Unicode characters
+### Changed
+- chore: Add .php-cs-fixer.dist.php configuration file
+- Update PHP version requirement to support PHP 8 in composer.json
+- Update PHP-CS-Fixer configuration to use PHP 7.4 migration rules
+
 ## [0.0.16] - 2022-09-18
 ### Fixed
 - Fix mb_strpos function, $offset now supports integer only
