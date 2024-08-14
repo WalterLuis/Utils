@@ -1,15 +1,18 @@
+<IfModule mod_env.c>
+    SetEnv HTACCESS_TEST on
+    SetEnv HTACCESS_TEST_PHP off
+</IfModule>
 <IfModule mod_php.c>
-  php_value error_reporting 1
+  php_value error_reporting 0
   php_flag display_errors Off
   php_flag display_startup_errors Off
   php_flag html_errors Off
   php_flag log_errors Off
 
   php_value mbstring.func_overload 0
-  php_value max_execution_time 120
-  php_value max_input_time 120
-
+  php_value max_execution_time 1200
+  php_value max_input_time 1200
   <IfModule mod_env.c>
-    SetEnv htaccessWorking true
+    SetEnv HTACCESS_TEST_PHP on
   </IfModule>
 </IfModule>
