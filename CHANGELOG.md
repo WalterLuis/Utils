@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.0.17] - 2024-08-14
 ### Fixed
 - Fix email validation to support Unicode characters
+- Fix indentation and formatting
+- Fix htaccess
 ### Changed
 - chore: Add .php-cs-fixer.dist.php configuration file
 - Update PHP version requirement to support PHP 8 in composer.json
