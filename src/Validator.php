@@ -16,7 +16,7 @@ namespace WalterLuis\Utils;
  * @license   MIT
  * @author    Walter Luis <walterluisglez@gmail.com>
  *
- * @link https://www.regular-expressions.info/unicode.html
+ * @see https://www.regular-expressions.info/unicode.html
  */
 class Validator
 {
@@ -24,14 +24,10 @@ class Validator
 
     /**
      * Function verifies if given value is a string.
-     *
-     * @param string $input
-     *
-     * @return bool
      */
     public static function string(string $input, string $extraPattern = ''): bool
     {
-        /**
+        /*
          * \p{Cc} or \p{Control}: an ASCII or Latin-1 control character: 0x00–0x1F and 0x7F–0x9F.
          */
         return \preg_match('/^[\p{L}\p{S}\p{P}\p{Z}\p{N}\p{Cc}' . $extraPattern . ']+$/', $input);
@@ -39,10 +35,6 @@ class Validator
 
     /**
      * Function verifies if given value is only text.
-     *
-     * @param string $input
-     *
-     * @return bool
      */
     public static function text(string $input, string $extraPattern = ''): bool
     {
@@ -51,10 +43,6 @@ class Validator
 
     /**
      * Function verifies if given value is only number including dot and comma.
-     *
-     * @param string $input
-     *
-     * @return bool
      */
     public static function numeric(string $input): bool
     {
@@ -65,8 +53,6 @@ class Validator
      * Function verifies if given value is integer type.
      *
      * @param int|string $input
-     *
-     * @return bool
      */
     public static function integer($input): bool
     {
@@ -77,8 +63,6 @@ class Validator
      * Function verifies if given value contains only words or digits.
      *
      * @param int|string $input
-     *
-     * @return bool
      */
     public static function alnum($input, string $extraPattern = ''): bool
     {
@@ -89,8 +73,6 @@ class Validator
      * Function verifies if given value can be recognized as bool.
      *
      * @param bool|int|string $input
-     *
-     * @return bool
      */
     public static function bool($input): bool
     {
@@ -99,10 +81,6 @@ class Validator
 
     /**
      *  Function checks if given value is email.
-     *
-     * @param string $email
-     *
-     * @return bool
      */
     public static function email(string $email): bool
     {
@@ -111,10 +89,6 @@ class Validator
 
     /**
      * Function checks if given value is url.
-     *
-     * @param string $url
-     *
-     * @return bool
      */
     public static function url(string $url): bool
     {
@@ -123,10 +97,6 @@ class Validator
 
     /**
      * Function verifies if given value is compatible with default date and time format.
-     *
-     * @param string $input
-     *
-     * @return bool
      */
     public static function dateTime(string $input): bool
     {
@@ -135,10 +105,6 @@ class Validator
 
     /**
      * Function verifies if given value is compatible with default data format.
-     *
-     * @param string $input
-     *
-     * @return bool
      */
     public static function date(string $input): bool
     {
@@ -147,10 +113,6 @@ class Validator
 
     /**
      * Function verifies if given value is compatible with default time format.
-     *
-     * @param string $input
-     *
-     * @return bool
      */
     public static function time(string $input): bool
     {
@@ -163,10 +125,6 @@ class Validator
 
     /**
      * Function verifies if given value is a valid user.
-     *
-     * @param string $input
-     *
-     * @return bool
      */
     public static function userName(string $input, string $extraPattern = ''): bool
     {
@@ -175,10 +133,6 @@ class Validator
 
     /**
      * Function verifies if given value is a valid password.
-     *
-     * @param string $input
-     *
-     * @return bool
      */
     public static function password(string $input, string $extraPattern = ''): bool
     {

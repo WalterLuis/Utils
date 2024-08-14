@@ -16,22 +16,18 @@ class DateTime
      *
      * @param string $date_start YYYY-MM-DD
      * @param string $date_end   YYYY-MM-DD
-     *
-     * @return int
      */
     public static function diff(string $date_start, string $date_end): int
     {
         return (int) (new \DateTime($date_start))
-            ->diff((new \DateTime($date_end)))
+            ->diff(new \DateTime($date_end))
             ->format('%a');
     }
 
     /**
      * Convert Date or DateTime to ISO8601.
      *
-     * @param string $dateTime    Date or DateTime format
-     * @param bool   $arrayReturn
-     * @param string $timeZone
+     * @param string $dateTime Date or DateTime format
      *
      * @return string|array|false "$y-$m-$d $time" | [$y, $m, $d, $time]
      */
