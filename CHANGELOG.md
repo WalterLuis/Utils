@@ -8,8 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fix email validation to support Unicode characters
 ### Changed
-- Update PHP version requirement to support PHP 8 in composer.json
 - chore: Add .php-cs-fixer.dist.php configuration file
+- Update PHP version requirement to support PHP 8 in composer.json
+- Update PHP-CS-Fixer configuration to use PHP 7.4 migration rules
 
 ## [0.0.16] - 2022-09-18
 ### Fixed

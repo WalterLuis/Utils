@@ -24,14 +24,13 @@ try {
         ->setRiskyAllowed(false)
         ->setUsingCache(false)
         ->setRules([
-            '@PHP82Migration'        => true,
+            '@PHP74Migration'        => true,
             '@Symfony'               => true,
             'binary_operator_spaces' => [
                 'default' => 'single_space',
                 // =, *, /, %, <, >, |, ^, +, -, &, &=, &&, ||, .=, /=, =>, ==, >=, ===, !=, <>, !==, <=, and, or, xor, -=, %=, *=, |=, +=, <<, <<=, >>, >>=, ^=, **, **=, <=>, ?? and ??=
                 'operators' => [
                     '|'  => 'no_space',
-                    '='  => 'align_single_space_minimal',
                     '=>' => 'align_single_space_minimal',
                 ],
             ],
