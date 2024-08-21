@@ -62,11 +62,20 @@ class Json
         $json = \preg_replace(
             [
                 // delete inline comments
-                '/\/\/[\s]{0,*}("\w|"\w,|{|}|:)(.*)/',
+                '/[\s]{0,}\/\/[\s]{0,1}(.*)?[\n]{0,}/',
                 // remove multi-line comments with opening /* and closing */
-                '/\/\*[\s]{0,*}[",{}:][\s\S]*?[\s]{0,*}[",{}:]\*\//',
+                '/[\s]{0,}\/\*[\s\S]*?\*\/[\s]{0,}/',
+                // remove all before from the first {
+                '/^[\s\S]*?{/',
+                // remove all after the last }
+                '/}(?![\s\S]*?{)/',
             ],
-            '',
+            [
+                '',
+                '',
+                '{',
+                '}',
+            ],
             $json
         );
 
