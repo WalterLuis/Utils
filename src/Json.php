@@ -47,9 +47,9 @@ class Json
     ): bool {
         return \is_string($json)
             && (
-                ('[&quot;' === \substr($json, 0, 1) && '&quot;]' === \substr($json, -1, 1))
-                || ('{&quot;' === \substr($json, 0, 1) && '&quot;}' === \substr($json, -1, 1))
-                || ('[{&quot;' === \substr($json, 0, 2) && '&quot;}]' === \substr($json, -1, 2))
+                ('[&quot;' === \substr($json, 0, 7) && '&quot;]' === \substr($json, -7, 7))
+                || ('{&quot;' === \substr($json, 0, 7) && '&quot;}' === \substr($json, -7, 7))
+                || ('[{&quot;' === \substr($json, 0, 8) && '&quot;}]' === \substr($json, -8, 8))
             );
     }
 
