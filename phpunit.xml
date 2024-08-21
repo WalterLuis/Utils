@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.3/phpunit.xsd"
+  backupGlobals="true"
+  backupStaticProperties="false"
+  beStrictAboutChangesToGlobalState="true"
+  beStrictAboutCoverageMetadata="true"
+  beStrictAboutOutputDuringTests="true"
+  beStrictAboutTestsThatDoNotTestAnything="true"
+  bootstrap="vendor/autoload.php"
+  cacheDirectory=".phpunit/cache"
+  cacheResult="false"
+  colors="true"
+  columns="max"
+  defaultTestSuite="unit"
+  defaultTimeLimit="1200"
+  displayDetailsOnIncompleteTests="true"
+  displayDetailsOnSkippedTests="true"
+  displayDetailsOnTestsThatTriggerDeprecations="true"
+  displayDetailsOnTestsThatTriggerErrors="true"
+  displayDetailsOnTestsThatTriggerNotices="true"
+  displayDetailsOnTestsThatTriggerWarnings="true"
+  enforceTimeLimit="false"
+  failOnDeprecation="true"
+  failOnEmptyTestSuite="true"
+  failOnIncomplete="true"
+  failOnNotice="true"
+  failOnRisky="true"
+  failOnSkipped="true"
+  failOnWarning="true"
+  stopOnDefect="false"
+  stopOnDeprecation="false"
+  stopOnError="true"
+  stopOnFailure="true"
+  stopOnIncomplete="false"
+  stopOnNotice="false"
+  stopOnRisky="false"
+  stopOnSkipped="false"
+  stopOnWarning="false"
+>
+  <testsuites>
+    <testsuite name="unit">
+      <directory>tests/unit</directory>
+    </testsuite>
+
+    <testsuite name="integration">
+      <directory>tests/integration</directory>
+    </testsuite>
+  </testsuites>
+
+  <groups>
+    <exclude>
+      <group>end-to-end</group>
+    </exclude>
+  </groups>
+
+  <php>
+    <ini name="html_errors" value="off" />
+    <ini name="error_reporting" value="-1" />
+  </php>
+</phpunit>

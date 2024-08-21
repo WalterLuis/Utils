@@ -12,3 +12,6 @@
 .babelrc
 .sonarlint/
 .favorites.json
+
+# PHPUnit
+/.phpunit/cache/test*

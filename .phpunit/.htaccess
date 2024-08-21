@@ -1,4 +1,4 @@
-RedirectMatch 403 ".*"
+RedirectMatch 403 ^.*$
 <FilesMatch ".*">
     Order allow,deny
     Deny from all
