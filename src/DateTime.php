@@ -11,19 +11,33 @@ namespace WalterLuis\Utils;
  */
 class DateTime
 {
+    /** @var string Date */
+    public const D_ISO8601 = 'Y-m-d';
+    /** @var string DateTime */
+    public const DT_ISO8601 = 'Y-m-d H:i:s';
+
+    /** @var string Format to days */
+    public const FORMAT_TO_DAYS = '%a';
+    /** @var string Format to months */
+    public const FORMAT_TO_MONTHS = '%m';
+    /** @var string Format to years */
+    public const FORMAT_TO_YEARS = '%y';
+
     /**
      * Returns the difference between two date ISO8601 format.
      *
      * @param string $date_start YYYY-MM-DD
      * @param string $date_end   YYYY-MM-DD
+     * @param string $format
      */
     public static function diff(
         string $date_start,
-        string $date_end
+        string $date_end,
+        string $format = self::FORMAT_TO_DAYS
     ): int {
         return (int) (new \DateTime($date_start))
             ->diff(new \DateTime($date_end))
-            ->format('%a');
+            ->format($format);
     }
 
     /**
